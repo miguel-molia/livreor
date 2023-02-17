@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$host = "localhost:3306";
-$user = "miguel-molia";
-$password = "Laplateforme24";
-$database = "miguel-molia_livreor";
+$host = "localhost";
+$user= "root";
+$password= "root";
+$database = "livreor";
 
 
 $login = $_POST["login"];
@@ -33,6 +33,8 @@ $user = $var->fetch_array();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
     <title>Connexion</title>
 </head>
 
@@ -54,9 +56,11 @@ $user = $var->fetch_array();
 
     <h1>Connexion</h1>
 
-    <form method="post">
+    
 
         <div class="container2">
+            
+        <form method="post">
             <label for="login">Login</label>
             <input type="text" name="login">
 
@@ -65,7 +69,7 @@ $user = $var->fetch_array();
 
             <input type="submit" value="Valider">
 
-
+        </form>
         </div>
 
         <?php
@@ -89,7 +93,7 @@ $user = $var->fetch_array();
 
 
 
-    </form>
+    
 
 
 
@@ -97,66 +101,3 @@ $user = $var->fetch_array();
 
 </html>
 
-
-
-
-
-
-
-
-<style>
-    body {
-        background-image: url("01.jpg");
-        background-size: cover;
-    }
-
-
-    header {
-        color: #ffdd99;
-        display: flex;
-        justify-content: end;
-        font-size: 150%;
-        gap: 30px;
-
-    }
-
-    .container2 {
-        color: #ffdd99;
-        width: 100px;
-        margin: auto;
-        margin-top: 15%;
-
-    }
-
-    h1 {
-        width: 100px;
-        margin: auto;
-        color: #ffdd99;
-
-    }
-
-    a {
-        text-decoration: none;
-        color: #ffdd99;
-    }
-
-    input[type=submit] {
-        background-color: wheat;
-        color: black;
-        padding: 5px 20px;
-        margin: 15px 45px;
-        cursor: pointer;
-        width: 80%;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    .echo {
-        color: #ff704d;
-        margin-left: 44%;
-        font-size: 30px;
-        font-family: 'Anton', sans-serif;
-    }
-</style>

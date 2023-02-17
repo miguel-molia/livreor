@@ -7,7 +7,7 @@ if(isset($_SESSION['login'])) {
     echo '<header>
         
     <div class="welcome"> ' . $_SESSION["login"]. ' </div>   
-    <a href="profil.php">Modifier profil</a>
+    <a href="profil2.php">Modifier profil</a>
     <a href="commentaire.php">Poster un commentaire</a>
     <a href="logout.php">Déconnexion</a>
     <a href="livre-or.php"> Livre d`Or </a>

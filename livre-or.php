@@ -3,10 +3,10 @@
 
 session_start();
 
-$host = "localhost:3306";
-$user = "miguel-molia";
-$password = "Laplateforme24";
-$database = "miguel-molia_livreor";
+$host = "localhost";
+$user = "root";
+$password = "root";
+$database = "livreor";
 
 
 $connect = mysqli_connect($host, $user, $password, $database);
