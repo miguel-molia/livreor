@@ -78,3 +78,52 @@ a:hover {
 
 }
 
+.bienvenue {
+    color: #ffdd99;
+    margin-left: 27%;
+    margin-top: 18%;
+    font-size: 77px;
+
+}
+
+.commentaires {
+    color: wheat;
+}
+
+table
+
+    {
+        padding-left: 35%;
+        padding-top: 15%;
+        color: #ffdd99;
+        
+    }
+
+
+    th
+    {
+        font-size: px;
+        color: black;
+
+    }
+
+
+    th, td
+    {
+        border: solid;
+        background-color: #ffdd99;
+        border-color: #ffdd99;
+    }
+    
+
+    td
+    {
+        color: black;
+    }
+
+    .container {
+        color: #ffdd99;
+        padding: 157px;
+        font-size: 450%;
+        padding-left: 39%;
+    }

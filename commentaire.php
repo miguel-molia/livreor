@@ -19,11 +19,12 @@ if (isset($_POST["valider"]))
         
         
         $commentaire = $_POST['commentaires'];
+        $date = date('Y-m-d H:i:s');
         
         
         
-        $res = $connect->query("INSERT INTO commentaires (commentaire, id_utilisateur) VALUES ('$commentaire','$id')");
-        header('location:livre-or.php');
+        $res = $connect->query("INSERT INTO `commentaires`(`commentaire`, `id_utilisateur`, `date`) VALUES ('$commentaire','$id','$date')");
+                header('location:livre-or.php');
         exit();
         }
     elseif (empty($_POST["commentaires"]))

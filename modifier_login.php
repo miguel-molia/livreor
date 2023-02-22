@@ -65,6 +65,7 @@ if (empty($_SESSION)) {
 if (isset($_POST['login_actuel'], $_POST['nouveau_login'])) 
 
 {
+
     $query = mysqli_query($connect,"SELECT * FROM utilisateurs WHERE login='" . $_POST['nouveau_login'] . "'" );
  
     if (empty($_POST['login_actuel']) || empty($_POST['nouveau_login'])) 
@@ -91,7 +92,6 @@ elseif (mysqli_num_rows($query) == 1)
     {  
 
     $request = $connect->query("UPDATE utilisateurs SET login= '" . $_POST['nouveau_login'] . "' WHERE id = '" . $_SESSION['id'] . "'");
-
 
 
     $_SESSION["login"] = $_POST['nouveau_login'];

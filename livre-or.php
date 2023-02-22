@@ -71,8 +71,9 @@ $commentaires_utilisateurs = $bdd->fetch_all(MYSQLI_ASSOC);
             <?php foreach ($commentaires_utilisateurs as $key => $value) { ?>
 
                 <tr>
+                    <?php $laplateforme = 'd-M-Y H:i:s A'; ?>
 
-                    <td> <?= $value['date'] ?> </td>
+                    <td> <?= date($laplateforme,$value['date']) ?> </td>
                     <td> <?= $value['login'] ?> </td>
                     <td> <?= $value['commentaire'] ?> </td>
         
@@ -106,107 +107,3 @@ $commentaires_utilisateurs = $bdd->fetch_all(MYSQLI_ASSOC);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style>
-    body {
-        background-image: url("01.jpg");
-        background-size: cover;
-    }
-
-    .container {
-        color: #ffdd99;
-        padding: 157px;
-        font-size: 450%;
-        padding-left: 39%;
-    }
-
-
-    header {
-        color: #ffdd99;
-        display: flex;
-        justify-content: end;
-        font-size: 150%;
-        gap: 30px;
-
-    }
-
-    a {
-        text-decoration: none;
-        color: #ffdd99;
-    }
-
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-
-    .welcome {
-        color: #b3f0ff;
-
-    }
-
-    .bienvenue {
-        color: #ffdd99;
-        margin-left: 27%;
-        margin-top: 18%;
-        font-size: 77px;
-
-    }
-
-    .commentaires {
-        color: wheat;
-    }
-
-
-    
-
-    table
-
-    {
-        padding-left: 35%;
-        padding-top: 15%;
-        color: #ffdd99;
-        
-    }
-
-
-    th
-    {
-        font-size: px;
-        color: black;
-
-    }
-
-
-    th, td
-    {
-        border: solid;
-        background-color: #ffdd99;
-        border-color: #ffdd99;
-    }
-    
-
-    td
-    {
-        color: black;
-    }
-
-    
-</style>
