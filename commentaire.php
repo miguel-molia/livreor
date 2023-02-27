@@ -1,43 +1,23 @@
 <?php
-
+//j'ouvre une session
 session_start();
 
+if (empty($_SESSION)) {
+    header('location:index.php');
+    exit();
+}
+
+//j'attribue des variables pour la connexion à la base de donnée
 $host= "localhost";
 $user="root";
 $password= "root";
 $database="livreor";
 
-
+//connexion à la base de donnée
 $connect = new mysqli($host, $user, $password, $database);
 
+//j'attribue une variable à la session de l'id
 $id = $_SESSION['id'];
-
-if (isset($_POST["valider"]))
-
-{
-    if (!empty($_POST["commentaires"])) {
-        
-        
-        $commentaire = $_POST['commentaires'];
-        $date = date('Y-m-d H:i:s');
-        
-        
-        
-        $res = $connect->query("INSERT INTO `commentaires`(`commentaire`, `id_utilisateur`, `date`) VALUES ('$commentaire','$id','$date')");
-                header('location:livre-or.php');
-        exit();
-        }
-    elseif (empty($_POST["commentaires"]))
-
-{
-    echo "<div class= 'echo'> Commentaire inexistant! </div>";
-}    
-     
-}
-
-
-
-
 
 ?>
 
@@ -88,15 +68,42 @@ if (isset($_POST["valider"]))
 
 </div>
 
+<?php
 
 
+//si "valider" existe (ou est defini)
+if (isset($_POST["valider"]))
 
+{   //si "commentaires" n'est pas vide 
+    if (!empty($_POST["commentaires"])) {
+        
+        // j'attribue une variable à "commentaires" 
+        $commentaire = $_POST['commentaires'];
+        
+        //j'attribue une variable à la date
+        $date = date('Y-m-d H:i:s');
+        
+        
+        //j'effectue ma requete (mise à jour)
+        $res = $connect->query("INSERT INTO `commentaires`(`commentaire`, `id_utilisateur`, `date`) VALUES ('$commentaire','$id','$date')");
+                
+        // redirection vers la page livre-or
+        header('location:livre-or.php');
+        
+        
+        exit();
+        
+    }
+    //sinon si "commentaires" n'est pas vide 
+    elseif (empty($_POST["commentaires"]))
 
+{
+    echo "<div class= 'echo'> Commentaire inexistant! </div>";
+}    
+     
+}
 
-
-
-
-
+?>
 
 </body>
 </html>

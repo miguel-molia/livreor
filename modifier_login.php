@@ -1,6 +1,8 @@
 <?php
+//j'ouvre une session
 session_start();
 
+//j'attribue des variables pour la connexion à la base de donnée
 $host = "localhost";
 $user= "root";
 $password= "root";

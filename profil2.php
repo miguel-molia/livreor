@@ -1,6 +1,8 @@
 <?php
+//j'ouvre une session
 session_start();
 
+//j'attribue des variables pour la connexion à la base de donnée
 $host = "localhost";
 $user = "root";
 $password = "root";
@@ -74,10 +76,16 @@ if (isset($_POST['modifier_login'], $_POST['modifier_password'], $_POST['cpasswo
     // si modif passw et confirm passw n'est pas vide
     if (!empty($_POST['modifier_login']) || empty($_POST['modifier_password']) || empty($_POST['cpassword'])) {
         echo '<div class="echo"> Veuillez renseignez tous les champs! </div>';
+    
+    //sinon si modif passw et confirm passw sont differents
     } elseif ($_POST['modifier_password'] != ($_POST['cpassword'])) {
+        
         echo "<div class= 'echo'> mot de passe différents!</div>";
+
+    //sinon
     } else {
 
+        //requete de mise à jour 
         $request = $connect->prepare("UPDATE utilisateurs SET password= ? WHERE id = ?");
 
         $request->bind_param('si', $_POST['modifier_password'], $_SESSION['id']);
@@ -125,7 +133,7 @@ if (isset($_POST['modifier_login'], $_POST['modifier_password'], $_POST['cpasswo
 
     //modif $_SESSION 
     $_SESSION = $user;
-    var_dump($user);
+    // var_dump($user);
 }
 
 

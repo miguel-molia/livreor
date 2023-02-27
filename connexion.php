@@ -1,6 +1,8 @@
 <?php
+//j'ouvre une session
 session_start();
 
+//j'attribue des variables pour la connexion à la base de donnée
 $host = "localhost";
 $user= "root";
 $password= "root";
@@ -73,9 +75,13 @@ $user = $var->fetch_array();
         </div>
 
         <?php
+        //compter le nombre de lignes dans la base de donnée
         $numligne = mysqli_num_rows($var);
 
+        //si il y à au moins une ligne
         if ($numligne > 0) {
+            
+            //attribuer chaque caractere à la session
             $_SESSION['id'] = $user['id'];
             $_SESSION["login"] = $_POST["login"];
             $_SESSION["password"] = $_POST["password"];
@@ -83,7 +89,7 @@ $user = $var->fetch_array();
 
             header("location: index.php");
         } 
-        //sinon si login et mdp existe
+        //sinon si login et mdp existe (ou est defini) mais que le login ou mdp n'existe pas dans la base de donnée
         elseif (isset($_POST["login"]) && isset($_POST["password"]) && $num_ligne == 0) {
             echo "<p class= 'echo'>login ou mot de passe incorrect!</p>";
         }

@@ -43,9 +43,9 @@
             <input type="password" name="password">
 
             <label for="confirm-password">Confirm Password</label>
-            <input type="password" name="confirm-password">
+            <input type="password" name="confirm-password" >
 
-            <input type="submit" value="Valider">
+            <input type="submit" name="submit" value="Valider">
             </form>
 
         </div>
@@ -68,12 +68,13 @@
 
 
 <?php
+//j'ouvre une session
 session_start();
 
 $login = $_POST["login"];
 $password = $_POST["password"];
 
-
+// je me connecte a la base de données
 $bdd = new mysqli("localhost", "root", "root", "livreor");
 if ($mysqli->connect_error) {
     echo "erreur de connexion a MySQL:" . $mysqli->connect_error;
@@ -81,8 +82,12 @@ if ($mysqli->connect_error) {
 }
 
 
-if (isset($_POST["login"], $_POST["password"], $_POST["confirm-password"])) 
+
+// si mon formulaire a bien ete validé
+if(isset($_POST['submit']))
+
 {
+    // si mes champs sont vides
     if (empty($_POST["login"]) || empty($_POST["password"]) || empty($_POST["confirm-password"])) 
     {
         echo "<div class='echo'>Vous n'avez pas rempli tous les champs!</div>";

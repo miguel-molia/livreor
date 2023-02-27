@@ -1,6 +1,8 @@
 <?php
+//j'ouvre une session
 session_start();
 
+//j'attribue des variables pour la connexion à la base de donnée
 $host = "localhost";
 $user= "root";
 $password= "root";
@@ -26,7 +28,7 @@ if (isset($_POST['modifier_password'], $_POST['cpassword']))
         echo '<div class="echo"> Veuillez renseignez tous les champs! </div>';
     
 }
-
+    //sinon si modif passw et confirm passw sont differents
     elseif ($_POST['modifier_password'] != ($_POST['cpassword']))
 
     {
@@ -36,7 +38,7 @@ if (isset($_POST['modifier_password'], $_POST['cpassword']))
     else
     
     {  
-
+        //requete de mise a jour (update set)
     $request = $connect->query("UPDATE utilisateurs SET password= '" . $_POST['modifier_password'] . "' WHERE id = '" . $_SESSION['id'] . "'");
 
 
