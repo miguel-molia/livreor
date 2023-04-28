@@ -51,7 +51,7 @@ if (isset($_SESSION["login"])) { ?>
     
     
     </header>;
-<?} else { ?>
+<?php } else { ?>
     <header>
 
     <a href='index.php'>Accueil</a>
@@ -60,7 +60,7 @@ if (isset($_SESSION["login"])) { ?>
     
     
 </header>;
-<? } ?>
+<?php } ?>
 
 
 

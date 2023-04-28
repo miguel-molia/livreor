@@ -75,10 +75,10 @@ $user = $var->fetch_array();
         </div>
 
         <?php
-        //compter le nombre de lignes dans la base de donnée
+        //compter le nombre de lignes dans la base de données
         $numligne = mysqli_num_rows($var);
 
-        //si il y à au moins une ligne
+        //si il y a au moins une ligne
         if ($numligne > 0) {
             
             //attribuer chaque caractere à la session
